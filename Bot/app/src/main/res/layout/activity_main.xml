@@ -4,41 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="csec467.bot.MainActivity">
+    tools:context="csec467.bot.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/increment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/corgiBtn"
+        android:layout_width="322dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="15dp"
         android:text="Corgi++"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/corgis_text" />
+        app:layout_constraintTop_toBottomOf="@+id/corgiTxt" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/corgiImg"
         android:layout_width="130dp"
-        android:layout_height="239dp"
-        app:layout_constraintBottom_toTopOf="@+id/corgis_text"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:contentDescription="Corgi"
+        app:layout_constraintBottom_toTopOf="@+id/corgiTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/corgi" />
 
-    <EditText
-        android:id="@+id/corgis_text"
-        android:layout_width="151dp"
+    <TextView
+        android:id="@+id/corgiTxt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="0 Corgis!"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/increment"
+        android:layout_marginBottom="75dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/corgiBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/corgiImg" />
+
 </android.support.constraint.ConstraintLayout>

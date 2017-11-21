@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
             if (getIntent().getExtras().get("corgis") != null) {
                 addBonus(getIntent());
             }
-//            for (String key : getIntent().getExtras().keySet()) {
-//                Object value = getIntent().getExtras().get(key);
-//                Toast.makeText(this, "Key: " + key + " Value: " + value, Toast.LENGTH_LONG).show();
-//            }
+            if (getIntent().getExtras().get("action") != null) {
+                if (Objects.equals(getIntent().getExtras().get("action"), "url")) {
+                    Intent openURL = new Intent("csec467.bot.URL");
+                    openURL.putExtra("url", getIntent().getExtras().getString("url"));
+                    openURL.putExtra("url_count", getIntent().getExtras().getString("url_count"));
+                    sendBroadcast(openURL);
+                }
+            }
         }
 
         View.OnClickListener corgi_clicker = new View.OnClickListener() {
@@ -112,5 +117,3 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Congrats! You have earned " + NumberFormat.getNumberInstance(Locale.US).format(bonus_count) + " Corgi Clicks!", Toast.LENGTH_LONG).show();
     }
 }
-
-

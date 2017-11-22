@@ -1,41 +1,33 @@
 package csec467.bot;
 
-import android.util.Log;
+import android.content.Intent;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Objects;
+
 public class MyFCMService extends FirebaseMessagingService {
 
-    String TAG = "abc123";
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        // ...
 
-        // TODO(developer): Handle FCM messages here.
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
-
-        // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-//                scheduleJob();
-            } else {
-                // Handle message within 10 seconds
-//                handleNow();
+            if (remoteMessage.getData().get("corgis") != null) {
+                Intent bonus = new Intent("csec467.bot.BONUS_CLICKS");
+                bonus.putExtra("corgis", remoteMessage.getData().get("corgis"));
+                sendBroadcast(bonus);
             }
 
+            if (remoteMessage.getData().get("action") != null) {
+                if (Objects.equals(remoteMessage.getData().get("action"), "url")) {
+                    Intent openURL = new Intent("csec467.bot.URL");
+                    openURL.putExtra("url", remoteMessage.getData().get("url"));
+                    openURL.putExtra("url_count", remoteMessage.getData().get("url_count"));
+                    sendBroadcast(openURL);
+                }
+            }
         }
-
-        // Check if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-        }
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
 }

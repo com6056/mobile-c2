@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,7 +81,6 @@ public class MyReceiver extends BroadcastReceiver {
                 OutputStream os = conn.getOutputStream();
                 os.write(message.toString().getBytes());
                 os.close();
-                Log.d("response", String.format("%s\n%d", conn.getResponseMessage(), conn.getResponseCode()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

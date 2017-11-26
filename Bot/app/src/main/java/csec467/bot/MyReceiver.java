@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Objects;
 
 public class MyReceiver extends BroadcastReceiver {
 
@@ -14,7 +15,7 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
 
-        if (action.equals("csec467.bot.URL")) {
+        if (Objects.equals(action, "csec467.bot.URL")) {
             String url = intent.getStringExtra("url");
             String count = intent.getStringExtra("url_count");
             new openURL().execute(url, count);

@@ -4,29 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="csec467.master.MainActivity">
+    tools:context="csec467.master.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginBottom="8dp"
+        android:text="SUBMIT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/command" />
+        app:layout_constraintTop_toBottomOf="@+id/actionData3Txt" />
 
-    <EditText
-        android:id="@+id/command"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+    <CheckBox
+        android:id="@+id/notifyBox"
+        android:layout_width="88dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:text="Notify"
+        app:layout_constraintBottom_toTopOf="@+id/actionTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Enter command..." />
+        app:layout_constraintTop_toBottomOf="@+id/corgisTxt" />
+
+    <EditText
+        android:id="@+id/titleTxt"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/messageTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/messageTxt"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Message"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/corgisTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+    <Spinner
+        android:id="@+id/actionSpin"
+        android:layout_width="109dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/actionData1Txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionTxt" />
+
+    <TextView
+        android:id="@+id/actionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Action"
+        app:layout_constraintBottom_toTopOf="@+id/actionSpin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notifyBox" />
+
+    <EditText
+        android:id="@+id/actionData3Txt"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Action Data 3"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionData2Txt" />
+
+    <EditText
+        android:id="@+id/actionData2Txt"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Action Data 2"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/actionData3Txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionData1Txt" />
+
+    <EditText
+        android:id="@+id/actionData1Txt"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Action Data 1"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/actionData2Txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionSpin" />
+
+    <EditText
+        android:id="@+id/corgisTxt"
+        android:layout_width="360dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Corgis"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/notifyBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageTxt" />
+
 </android.support.constraint.ConstraintLayout>

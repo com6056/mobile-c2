@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
@@ -23,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseMessaging.getInstance().subscribeToTopic("corgi");
+
         SharedPreferences sharedPref = this.getSharedPreferences("corgi", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPref.edit();
         String corgi_counter = sharedPref.getString("corgi_counter", null);
 
-        Button corgiBtn = (Button) findViewById(R.id.corgiBtn);
-        final TextView corgiTxt = (TextView) findViewById(R.id.corgiTxt);
+        Button corgiBtn = findViewById(R.id.corgiBtn);
+        final TextView corgiTxt = findViewById(R.id.corgiTxt);
 
         if (corgi_counter == null) {
             corgi_counter = "0 Corgis!";
@@ -99,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("corgi", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         String corgi_counter = sharedPref.getString("corgi_counter", null);
-        TextView corgiTxt = (TextView) findViewById(R.id.corgiTxt);
+        TextView corgiTxt = findViewById(R.id.corgiTxt);
 
         if (corgi_counter == null) {
             corgi_counter = "0 Corgis!";

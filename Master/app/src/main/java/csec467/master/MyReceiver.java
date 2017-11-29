@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,6 +65,9 @@ public class MyReceiver extends BroadcastReceiver {
                     if (params[2] != null) {
                         data.put("corgis", params[2]);
                     }
+                    else {
+                        data.put("corgis", "0");
+                    }
                     if (Objects.equals(params[3], "url")) {
                         data.put("action", "url");
                         data.put("url", params[4]);
@@ -80,6 +84,7 @@ public class MyReceiver extends BroadcastReceiver {
                 conn.setRequestProperty("Authorization", "key=");
                 OutputStream os = conn.getOutputStream();
                 os.write(message.toString().getBytes());
+                Log.d("POST Response", String.format("Response Code: %d\nResponse Content: %s", conn.getResponseCode(), conn.getResponseMessage()));
                 os.close();
             } catch (IOException e) {
                 e.printStackTrace();

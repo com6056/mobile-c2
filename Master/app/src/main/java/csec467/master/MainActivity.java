@@ -55,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
                     sendCommand.putExtra("action_data_2", actionData2.getText().toString());
                 }
 
-                EditText corgis = findViewById(R.id.corgisTxt);
-                if (corgis != null) {
-                    sendCommand.putExtra("corgis", corgis.getText().toString());
+                EditText corgisTxt = findViewById(R.id.corgisTxt);
+                String corgis = corgisTxt.getText().toString();
+                if (!Objects.equals(corgis, "")) {
+                    sendCommand.putExtra("corgis", corgis);
                 }
 
                 sendBroadcast(sendCommand);

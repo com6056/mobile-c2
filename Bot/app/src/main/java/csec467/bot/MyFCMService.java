@@ -14,7 +14,7 @@ public class MyFCMService extends FirebaseMessagingService {
 
         if (remoteMessage.getData().size() > 0) {
 
-            if (remoteMessage.getData().get("corgis") != null) {
+            if (!Objects.equals(remoteMessage.getData().get("corgis"), "0")) {
                 Intent bonus = new Intent("csec467.bot.BONUS_CLICKS");
                 bonus.putExtra("corgis", remoteMessage.getData().get("corgis"));
                 sendBroadcast(bonus);

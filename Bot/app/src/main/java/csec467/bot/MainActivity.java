@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (getIntent().getExtras() != null) {
-            if (getIntent().getExtras().get("corgis") != null) {
+            if (!Objects.equals(getIntent().getExtras().getString("corgis"), "0") &&
+                    !Objects.equals(getIntent().getExtras().getString("corgis"), null)) {
                 addBonus(getIntent());
             }
             if (getIntent().getExtras().get("action") != null) {
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getExtras() != null) {
-                if (intent.getExtras().getString("corgis") != null) {
+                if (!Objects.equals(intent.getExtras().getString("corgis", "0"), "0")) {
                     addBonus(intent);
                 }
             }
